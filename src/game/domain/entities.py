@@ -129,6 +129,14 @@ class GameSession(BaseModel):
         return len(self.turn_history)
 
     @property
+    def question_count(self) -> int:
+        """Returns the actual number of questions asked (real turns)."""
+        return sum(
+            1 for event in self.turn_history
+            if "question" in event.tags
+        )
+
+    @property
     def is_active(self) -> bool:
         return self.state == GameState.IN_PROGRESS
 

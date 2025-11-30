@@ -104,6 +104,11 @@ class GameSessionRunner:
     def turn_count(self) -> int:
         return self._session.turn_count
 
+    @property
+    def question_count(self) -> int:
+        """Returns the actual number of questions asked (actual turns)."""
+        return self._count_questions()
+
     def start_game(self) -> GameResponse:
         if self._session.state != GameState.LOBBY:
             return GameResponse(

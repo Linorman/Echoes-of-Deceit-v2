@@ -295,6 +295,43 @@ class TestGameSession:
         assert event.turn_index == 0
         assert event.session_id == session.session_id
 
+    def test_question_count(self):
+        """Test that question_count only counts events with 'question' tag."""
+        session = GameSession(puzzle_id="puzzle_1")
+        
+        # Add a question
+        session.add_event(
+            role=AgentRole.PLAYER,
+            message="Is it a person?",
+            tags=["question"],
+        )
+        
+        # Add a DM answer (not a question)
+        session.add_event(
+            role=AgentRole.DM,
+            message="Yes, it is a person.",
+            tags=["answer"],
+        )
+        
+        # Add another question
+        session.add_event(
+            role=AgentRole.PLAYER,
+            message="Is the person alive?",
+            tags=["question"],
+        )
+        
+        # Add hypothesis (not a question)
+        session.add_event(
+            role=AgentRole.PLAYER,
+            message="I think it's the butler.",
+            tags=["hypothesis"],
+        )
+        
+        # turn_count counts all events
+        assert session.turn_count == 4
+        # question_count only counts questions
+        assert session.question_count == 2
+
     def test_get_recent_events(self):
         session = GameSession(puzzle_id="puzzle_1")
 

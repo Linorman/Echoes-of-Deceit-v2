@@ -54,6 +54,9 @@ tenacity
 # CLI packages
 click>=8.0.0
 
+# WebUI packages
+streamlit>=1.29.0
+
 # LangChain & LangGraph
 langchain>=0.3.0
 langchain-core>=0.3.0
