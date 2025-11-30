@@ -78,6 +78,13 @@ class BaseMemoryStore(ABC):
     def list_keys(self, namespace: str | Tuple[str, ...]) -> List[str]:
         pass
 
+    @abstractmethod
+    def get_all_in_namespace(
+        self,
+        namespace: str | Tuple[str, ...],
+    ) -> List[MemoryDocument]:
+        pass
+
     def _normalize_namespace(self, namespace: str | Tuple[str, ...]) -> str:
         if isinstance(namespace, tuple):
             return ":".join(namespace)

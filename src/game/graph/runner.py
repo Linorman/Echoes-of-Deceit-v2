@@ -158,7 +158,7 @@ class GameGraphRunner:
     async def get_checkpoint_state(self) -> Optional[Dict[str, Any]]:
         config = self._get_config()
         try:
-            checkpoint = self._checkpointer.get(config)
+            checkpoint = self._checkpointer.get(config)  # type: ignore[arg-type]
             if checkpoint:
                 return checkpoint.get("channel_values", {})
         except Exception as e:

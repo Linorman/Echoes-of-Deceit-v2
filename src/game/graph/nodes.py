@@ -254,6 +254,9 @@ class PlayerAgentNode(BaseNode):
             strategies=strategies,
         )
 
+        if self._llm_client is None:
+            return {"error": "LLM client not configured for player agent"}
+
         try:
             response = await self._llm_client.agenerate(prompt)
             question = self._parse_question_response(response)
@@ -287,6 +290,9 @@ class PlayerAgentNode(BaseNode):
             recent_qa=recent_qa,
             persona_name=persona_name,
         )
+
+        if self._llm_client is None:
+            return {"error": "LLM client not configured for player agent"}
 
         try:
             response = await self._llm_client.agenerate(prompt)

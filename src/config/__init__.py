@@ -14,6 +14,7 @@ from .models import (
     DirectoriesConfig,
     GameSettingsConfig,
     PuzzleConfig,
+    SummarizationConfig,
 )
 
 __all__ = [
@@ -30,4 +31,5 @@ __all__ = [
     "DirectoriesConfig",
     "GameSettingsConfig",
     "PuzzleConfig",
+    "SummarizationConfig",
 ]
