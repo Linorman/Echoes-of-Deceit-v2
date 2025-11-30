@@ -150,6 +150,7 @@ class KnowledgeBase:
             "llm_binding_host": "llm_host",
             "llm_endpoint": "llm_host",
             "embedding_binding_host": "embedding_host",
+            "embedding_model_name": "embedding_model",
         }
 
         for source, target in alias_map.items():

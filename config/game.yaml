@@ -1,0 +1,19 @@
+rag:
+  default_provider: lightrag
+  
+directories:
+  data_base_dir: data/situation_puzzles
+  rag_storage_dir: rag_storage
+  game_storage_dir: game_storage
+
+game:
+  default_language: en
+  max_turn_count: 100
+  default_hint_limit: 5
+  allowed_question_types:
+    - yes_no
+    - yes_and_no
+    - irrelevant
+
+puzzle:
+  kb_id_prefix: "game_"

@@ -1,0 +1,71 @@
+dm:
+  persona:
+    name: Narrator
+    tone: mysterious
+    style: immersive
+  behavior:
+    reveal_answer_early: false
+    verbose_explanations: false
+    encourage_player: true
+  profile_integration:
+    enabled: true
+    profile_weight: medium
+    adapt_difficulty: true
+    adapt_explanations: true
+    adapt_hint_strength: true
+
+player_agent:
+  enabled: false
+  persona:
+    name: Detective
+    tone: curious
+    style: analytical
+  behavior:
+    ask_followup_questions: true
+    form_hypothesis_after_questions: 10
+    max_questions_before_guess: 20
+    question_strategies:
+      - binary_elimination
+      - detail_probing
+      - scenario_testing
+  rag_access:
+    allowed_types:
+      - puzzle_statement
+      - public_fact
+    max_context_length: 500
+
+judge:
+  strictness: moderate
+  response_format:
+    question_response:
+      - "YES"
+      - "NO"
+      - "YES_AND_NO"
+      - "IRRELEVANT"
+    include_explanation: true
+    max_explanation_length: 100
+
+hint:
+  strategy:
+    initial_vagueness: high
+    progressive_clarity: true
+    max_hints_before_direct: 3
+  timing:
+    auto_hint_after_questions: 10
+    allow_player_request: true
+
+analytics:
+  enabled: true
+  export_format: json
+  export_dir: game_storage/analytics
+  observability:
+    log_session_events: true
+    log_level: INFO
+    structured_logging: true
+
+summarization:
+  use_llm: true
+  include_reasoning_style: true
+  include_common_mistakes: true
+  include_notable_strengths: true
+  max_summary_length: 500

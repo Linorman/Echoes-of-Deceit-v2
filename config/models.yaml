@@ -1,0 +1,18 @@
+provider: ollama
+
+ollama:
+  base_url: http://10.254.101.186:11434
+  llm_model_name: qwen3:4b-instruct-2507-q4_K_M
+  embedding_model_name: qwen3-embedding:4b
+  embedding_dim: 2560
+  default_temperature: 0.7
+  max_tokens: 2048
+
+api:
+  base_url: ${OPENAI_API_BASE:https://api.openai.com/v1}
+  api_key: ${OPENAI_API_KEY:}
+  llm_model_name: gpt-4o-mini
+  embedding_model_name: text-embedding-3-small
+  embedding_dim: 1536
+  default_temperature: 0.7
+  max_tokens: 2048
