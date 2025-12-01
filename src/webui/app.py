@@ -10,8 +10,10 @@ import streamlit as st
 from webui.config import PAGE_CONFIG, APP_NAME, APP_ICON, CSS_STYLES
 from webui.i18n import I18n, get_available_languages
 from webui import session_state as state
-from webui.components import render_css, render_navigation, render_error
-from webui.pages.home import render_home_page
+from webui.components import render_css, render_error
+from webui.home import render_home_page
+from webui.game import render_game_page
+from webui.async_utils import run_async
 
 _engine_ready_printed = False
 
@@ -38,7 +40,7 @@ def init_game_engine():
     return True
 
 
-def render_sidebar(i18n: I18n) -> str:
+def render_sidebar(i18n: I18n) -> None:
     with st.sidebar:
         st.markdown(f"# {APP_ICON} {i18n('app_title')}")
         st.markdown(f"*{i18n('app_subtitle')}*")
@@ -86,36 +88,12 @@ def render_sidebar(i18n: I18n) -> str:
         
         st.markdown("---")
         
-        current_page = state.get_current_page()
-        
-        # Only show home page navigation
-        pages = [
-            ("home", "🏠", i18n("nav_home")),
-        ]
-        
-        for page_key, icon, label in pages:
-            is_current = current_page == page_key
-            btn_type = "primary" if is_current else "secondary"
-            
-            if st.button(
-                f"{icon} {label}",
-                key=f"nav_{page_key}",
-                use_container_width=True,
-                type=btn_type,
-            ):
-                state.set_current_page(page_key)
-                st.rerun()
-        
-        st.markdown("---")
-        
         session_id = state.get_current_session_id()
         if session_id:
             st.caption(f"Session: {session_id[:8]}...")
         
         if ui_settings.player_agent_mode:
             st.info(f"🤖 {i18n('settings_player_agent_mode')}")
-    
-    return state.get_current_page()
 
 
 def main():
@@ -133,12 +111,42 @@ def main():
             render_error(error_msg)
         st.stop()
     
-    current_page = render_sidebar(i18n)
+    render_sidebar(i18n)
     
-    action = None
+    current_page = state.get_current_page()
     
-    # Only render home page
-    action = render_home_page(i18n)
+    if current_page == "game":
+        action = render_game_page(i18n)
+        if action == "back_home":
+            state.reset_game_state()
+            state.set_current_page("home")
+            st.rerun()
+    else:
+        action = render_home_page(i18n)
+        if action == "start_game":
+            _start_new_game(i18n)
+        elif action == "continue_game":
+            state.set_current_page("game")
+            st.rerun()
+
+
+def _start_new_game(i18n: I18n) -> None:
+    engine = state.get_game_engine()
+    puzzle_id = state.get_current_puzzle_id()
+    player_id = state.get_player_id()
+    
+    if not engine or not puzzle_id:
+        state.set_error_message(i18n("error_missing_puzzle"))
+        return
+    
+    try:
+        session = run_async(engine.create_session(puzzle_id, player_id))
+        state.set_current_session_id(session.session_id)
+        state.set_current_page("game")
+        st.rerun()
+    except Exception as e:
+        state.set_error_message(f"{i18n('error_generic')}: {str(e)}")
+        st.rerun()
 
 
 if __name__ == "__main__":

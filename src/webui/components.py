@@ -1,6 +1,6 @@
 """Reusable UI components for the WebUI."""
 
-from typing import Optional, List, Dict, Any
+from typing import Optional, List
 import streamlit as st
 
 from webui.config import EMOJI_MAP, CSS_STYLES
@@ -208,66 +208,3 @@ def render_empty_state(message: str, icon: str = "info") -> None:
         """,
         unsafe_allow_html=True,
     )
-
-
-def render_navigation(current_page: str, i18n: I18n) -> str:
-    pages = {
-        "home": (EMOJI_MAP["home"], i18n("nav_home")),
-        "game": (EMOJI_MAP["game"], i18n("nav_game")),
-        "history": (EMOJI_MAP["history"], i18n("nav_history")),
-        "settings": (EMOJI_MAP["settings"], i18n("nav_settings")),
-    }
-    
-    selected_page = current_page
-    
-    with st.sidebar:
-        st.markdown("---")
-        for page_key, (icon, label) in pages.items():
-            is_selected = current_page == page_key
-            btn_type = "primary" if is_selected else "secondary"
-            
-            if st.button(
-                f"{icon} {label}",
-                key=f"nav_{page_key}",
-                use_container_width=True,
-                type=btn_type,
-            ):
-                selected_page = page_key
-    
-    return selected_page
-
-
-def render_sidebar_settings(i18n: I18n) -> Dict[str, Any]:
-    from webui.i18n import get_available_languages
-    
-    settings = {}
-    
-    with st.sidebar:
-        st.markdown(f"### {EMOJI_MAP['settings']} {i18n('nav_settings')}")
-        
-        languages = get_available_languages()
-        current_lang = i18n.language
-        lang_options = list(languages.keys())
-        lang_labels = list(languages.values())
-        current_index = lang_options.index(current_lang) if current_lang in lang_options else 0
-        
-        selected_lang_label = st.selectbox(
-            i18n("sidebar_language"),
-            options=lang_labels,
-            index=current_index,
-            key="sidebar_language_select",
-        )
-        
-        selected_lang = lang_options[lang_labels.index(selected_lang_label)]
-        settings["language"] = selected_lang
-        
-        st.text_input(
-            i18n("sidebar_player_id"),
-            key="sidebar_player_id_input",
-            help=i18n("sidebar_player_id_help"),
-        )
-        
-        if "sidebar_player_id_input" in st.session_state:
-            settings["player_id"] = st.session_state.sidebar_player_id_input
-    
-    return settings
