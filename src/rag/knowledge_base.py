@@ -44,6 +44,25 @@ class KnowledgeBaseConfig:
     def from_dict(cls, data: Dict[str, Any]) -> KnowledgeBaseConfig:
         return cls(**data)
 
+    def resolve_working_dir(self, base_dir: Path) -> str:
+        working_path = Path(self.working_dir)
+        if working_path.is_absolute():
+            return str(working_path)
+        return str((base_dir / working_path).resolve())
+
+    def resolve_metadata_paths(self, base_dir: Path) -> Dict[str, Any]:
+        resolved = dict(self.metadata)
+        if "source_files" in resolved:
+            resolved_files = []
+            for file_path in resolved["source_files"]:
+                p = Path(file_path)
+                if p.is_absolute():
+                    resolved_files.append(str(p))
+                else:
+                    resolved_files.append(str((base_dir / p).resolve()))
+            resolved["source_files"] = resolved_files
+        return resolved
+
 
 class KnowledgeBase:
     """Manages multiple isolated knowledge bases for puzzle/scenario games."""
@@ -200,8 +219,9 @@ class KnowledgeBase:
             raise ValueError(f"Knowledge base '{kb_id}' already exists")
 
         provider_type = provider_type or self.default_provider_type
-        working_dir = str(self.base_storage_dir / kb_id)
-        os.makedirs(working_dir, exist_ok=True)
+        working_dir = kb_id
+        abs_working_dir = self.base_storage_dir / kb_id
+        os.makedirs(abs_working_dir, exist_ok=True)
 
         now = datetime.now().isoformat(sep=" ", timespec="seconds")
         kb_config = KnowledgeBaseConfig(
@@ -241,7 +261,8 @@ class KnowledgeBase:
 
             if remove_files:
                 try:
-                    shutil.rmtree(kb_config.working_dir, ignore_errors=True)
+                    abs_working_dir = kb_config.resolve_working_dir(self.base_storage_dir)
+                    shutil.rmtree(abs_working_dir, ignore_errors=True)
                     logger.info("Removed files for knowledge base: %s", kb_id)
                 except Exception as exc:
                     logger.error("Failed to remove files: %s", exc)
@@ -261,8 +282,10 @@ class KnowledgeBase:
             kb_config = self._registry[kb_id]
             provider_options = self._collect_provider_options(kb_config)
 
+            abs_working_dir = kb_config.resolve_working_dir(self.base_storage_dir)
+
             rag_config = RAGConfig(
-                working_dir=kb_config.working_dir,
+                working_dir=abs_working_dir,
                 auto_initialize=True,
                 options=provider_options,
             )
@@ -358,4 +381,51 @@ class KnowledgeBase:
         kb_config.updated_at = datetime.utcnow().isoformat()
         self._save_registry()
         return kb_config
+
+    def migrate_to_relative_paths(self, project_root: Optional[Path] = None) -> int:
+        """Migrate existing absolute paths to relative paths."""
+        if project_root is None:
+            project_root = self.base_storage_dir.parent
+
+        migrated_count = 0
+
+        for kb_id, kb_config in self._registry.items():
+            changed = False
+
+            working_path = Path(kb_config.working_dir)
+            if working_path.is_absolute():
+                try:
+                    rel_path = working_path.relative_to(self.base_storage_dir)
+                    kb_config.working_dir = str(rel_path)
+                    changed = True
+                except ValueError:
+                    logger.warning(
+                        "Cannot convert working_dir to relative: %s",
+                        kb_config.working_dir,
+                    )
+
+            if "source_files" in kb_config.metadata:
+                new_source_files = []
+                for file_path in kb_config.metadata["source_files"]:
+                    fp = Path(file_path)
+                    if fp.is_absolute():
+                        try:
+                            rel_fp = fp.relative_to(project_root)
+                            new_source_files.append(str(rel_fp))
+                            changed = True
+                        except ValueError:
+                            new_source_files.append(file_path)
+                    else:
+                        new_source_files.append(file_path)
+                kb_config.metadata["source_files"] = new_source_files
+
+            if changed:
+                migrated_count += 1
+                logger.info("Migrated paths for knowledge base: %s", kb_id)
+
+        if migrated_count > 0:
+            self._save_registry()
+            logger.info("Migrated %d knowledge bases to relative paths", migrated_count)
+
+        return migrated_count
 

@@ -50,6 +50,7 @@ class KnowledgeBaseManager:
         if base_dir is None:
             base_dir = Path(__file__).parent.parent.parent
         
+        self._base_dir = base_dir
         self._rag_storage_dir = base_dir / config.directories.rag_storage_dir
         self._data_base_dir = base_dir / config.directories.data_base_dir
         self._kb_id_prefix = config.puzzle.kb_id_prefix
@@ -62,6 +63,12 @@ class KnowledgeBaseManager:
             default_provider_type=self._default_provider,
             provider_kwargs={"config_options": provider_options},
         )
+
+    def _to_relative_path(self, path: Path) -> str:
+        try:
+            return str(path.relative_to(self._base_dir))
+        except ValueError:
+            return str(path)
 
     @property
     def knowledge_base(self) -> KnowledgeBase:
@@ -106,7 +113,7 @@ class KnowledgeBaseManager:
         metadata = {
             "game_id": puzzle_id,
             "game_type": game_info.get("game_type", "situation_puzzle"),
-            "source_files": [str(p) for p in file_paths],
+            "source_files": [self._to_relative_path(p) for p in file_paths],
             "document_count": len(documents),
         }
         

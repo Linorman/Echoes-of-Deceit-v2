@@ -155,6 +155,9 @@ def _render_human_mode_controls(runner, i18n: I18n) -> None:
 def _render_agent_mode_controls(runner, i18n: I18n) -> None:
     st.info(f"🤖 {i18n('settings_player_agent_mode')} - AI will ask questions automatically")
     
+    if "auto_play_active" not in st.session_state:
+        st.session_state.auto_play_active = False
+    
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -162,14 +165,29 @@ def _render_agent_mode_controls(runner, i18n: I18n) -> None:
             _run_agent_turn(runner, i18n)
     
     with col2:
-        auto_play = st.checkbox(i18n("game_agent_auto_play"), key="auto_play_checkbox")
+        # Use callback to sync checkbox with our state variable
+        def on_auto_play_change():
+            st.session_state.auto_play_active = st.session_state.auto_play_checkbox
+        
+        auto_play = st.checkbox(
+            i18n("game_agent_auto_play"), 
+            key="auto_play_checkbox",
+            value=st.session_state.auto_play_active,
+            on_change=on_auto_play_change
+        )
     
     with col3:
-        if st.button(f"⏹️ {i18n('game_agent_stop')}", key="agent_stop", use_container_width=True):
-            st.session_state.auto_play_checkbox = False
-            st.rerun()
+        def stop_auto_play():
+            st.session_state.auto_play_active = False
+        
+        st.button(
+            f"⏹️ {i18n('game_agent_stop')}", 
+            key="agent_stop", 
+            use_container_width=True,
+            on_click=stop_auto_play
+        )
     
-    if auto_play and runner.is_active:
+    if st.session_state.auto_play_active and runner.is_active:
         _run_agent_turn(runner, i18n)
         st.rerun()
 
