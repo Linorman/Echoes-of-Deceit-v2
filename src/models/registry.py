@@ -3,12 +3,21 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional
+from typing import Optional, Union
+
+from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.embeddings import Embeddings
 
 from config import ConfigLoader, ModelsConfig
-from models.api_client import APIEmbeddingClient, APILLMClient
 from models.base import EmbeddingClient, LLMClient
-from models.ollama_client import OllamaEmbeddingClient, OllamaLLMClient
+from models.langchain_client import (
+    LangChainLLMClient,
+    LangChainEmbeddingClient,
+    create_ollama_llm_client,
+    create_ollama_embedding_client,
+    create_openai_llm_client,
+    create_openai_embedding_client,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -19,8 +28,10 @@ class ModelProviderRegistry:
             loader = ConfigLoader()
             config = loader.load_models_config()
         self._config = config
-        self._llm_client: Optional[LLMClient] = None
-        self._embedding_client: Optional[EmbeddingClient] = None
+        self._llm_client: Optional[LangChainLLMClient] = None
+        self._embedding_client: Optional[LangChainEmbeddingClient] = None
+        self._chat_model: Optional[BaseChatModel] = None
+        self._embeddings: Optional[Embeddings] = None
 
     @property
     def provider(self) -> str:
@@ -32,7 +43,7 @@ class ModelProviderRegistry:
 
         if self._config.provider == "ollama":
             cfg = self._config.ollama
-            self._llm_client = OllamaLLMClient(
+            self._llm_client = create_ollama_llm_client(
                 base_url=cfg.base_url,
                 model_name=cfg.llm_model_name,
                 temperature=cfg.default_temperature,
@@ -40,7 +51,7 @@ class ModelProviderRegistry:
             )
         else:
             cfg = self._config.api
-            self._llm_client = APILLMClient(
+            self._llm_client = create_openai_llm_client(
                 base_url=cfg.base_url,
                 api_key=cfg.api_key,
                 model_name=cfg.llm_model_name,
@@ -61,13 +72,13 @@ class ModelProviderRegistry:
 
         if self._config.provider == "ollama":
             cfg = self._config.ollama
-            self._embedding_client = OllamaEmbeddingClient(
+            self._embedding_client = create_ollama_embedding_client(
                 base_url=cfg.base_url,
                 model_name=cfg.embedding_model_name,
             )
         else:
             cfg = self._config.api
-            self._embedding_client = APIEmbeddingClient(
+            self._embedding_client = create_openai_embedding_client(
                 base_url=cfg.base_url,
                 api_key=cfg.api_key,
                 model_name=cfg.embedding_model_name,
@@ -79,6 +90,18 @@ class ModelProviderRegistry:
             cfg.embedding_model_name,
         )
         return self._embedding_client
+
+    def get_chat_model(self) -> BaseChatModel:
+        llm_client = self.get_llm_client()
+        if isinstance(llm_client, LangChainLLMClient):
+            return llm_client.chat_model
+        raise TypeError("LLM client is not a LangChain-based client")
+
+    def get_embeddings(self) -> Embeddings:
+        embedding_client = self.get_embedding_client()
+        if isinstance(embedding_client, LangChainEmbeddingClient):
+            return embedding_client.embeddings
+        raise TypeError("Embedding client is not a LangChain-based client")
 
     def get_provider_options(self) -> dict:
         if self._config.provider == "ollama":

@@ -3,6 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/LangChain-Powered-purple.svg" alt="LangChain">
   <img src="https://img.shields.io/badge/LangGraph-Powered-orange.svg" alt="LangGraph">
 </p>
 
@@ -11,9 +12,10 @@
 ## ✨ Features
 
 - **Multi-Agent AI System**: Includes DM (Dungeon Master), Judge, Player Agent, and Hint Provider roles
+- **LangChain Integration**: Unified model abstraction using LangChain for seamless provider switching
 - **RAG Knowledge Base**: Powered by LightRAG/MiniRAG for puzzle knowledge management and retrieval-augmented generation
 - **LangGraph Workflow**: State graph-based game flow orchestration
-- **Multiple Model Support**: Supports Ollama local models and OpenAI-compatible APIs
+- **Multiple Model Support**: Supports Ollama local models and OpenAI-compatible APIs via LangChain
 - **Memory Management**: Session memory, player profiles, and game analytics
 - **Dual Interface**: Both CLI and Web UI (Streamlit) available
 - **Internationalization**: Supports multiple languages (English & Chinese)
@@ -153,7 +155,7 @@ Then open your browser at `http://localhost:8501`
 | `GameSessionRunner` | Manages individual game sessions and turn-based interactions |
 | `KnowledgeBaseManager` | RAG knowledge base creation and querying |
 | `MemoryManager` | Session and player memory persistence |
-| `ModelProviderRegistry` | Unified access to LLM and embedding models |
+| `ModelProviderRegistry` | Unified access to LangChain-based LLM and embedding models |
 | `GameGraphBuilder` | LangGraph workflow construction |
 
 ### Agent Roles
@@ -240,10 +242,11 @@ pytest tests/ -v
 ## 🛠️ Technology Stack
 
 - **Python 3.10+**
-- **LangGraph / LangChain** - Agent orchestration
+- **LangChain** - Unified LLM and embedding model abstraction
+- **LangGraph** - Agent orchestration and workflow management
 - **LightRAG / MiniRAG** - Retrieval-augmented generation
-- **Ollama** - Local LLM inference
-- **OpenAI API** - Cloud LLM support
+- **Ollama** - Local LLM inference (via langchain-ollama)
+- **OpenAI API** - Cloud LLM support (via langchain-openai)
 - **Streamlit** - Web UI framework
 - **Pydantic** - Data validation
 - **PyYAML** - Configuration management
