@@ -1,0 +1,222 @@
+{
+  "doc-6b9f595ec0a1e10d78b0214ca06e43a9": {
+    "relation_pairs": [
+      [
+        "Eldest Brother",
+        "Narrator"
+      ],
+      [
+        "Illness",
+        "Second Brother"
+      ],
+      [
+        "Bed",
+        "Narrator"
+      ],
+      [
+        "Narrator",
+        "Second Brother"
+      ],
+      [
+        "Eldest Brother",
+        "Second Brother"
+      ],
+      [
+        "Bed",
+        "Eldest Brother"
+      ],
+      [
+        "Bed",
+        "Second Brother"
+      ]
+    ],
+    "count": 7,
+    "create_time": 1761107246,
+    "update_time": 1761107246,
+    "_id": "doc-6b9f595ec0a1e10d78b0214ca06e43a9"
+  },
+  "doc-96f8a23b2abbf0d08a44940286de792d": {
+    "relation_pairs": [
+      [
+        "Eldest Brother",
+        "Narrator"
+      ],
+      [
+        "Second Brother",
+        "Shared Bed"
+      ],
+      [
+        "Narrator",
+        "Puzzle Answer"
+      ],
+      [
+        "Eldest Brother",
+        "Puzzle Answer"
+      ],
+      [
+        "Second Brother",
+        "Serious Illness"
+      ],
+      [
+        "Narrator",
+        "Shared Bed"
+      ],
+      [
+        "Narrator",
+        "Second Brother"
+      ],
+      [
+        "Puzzle Answer",
+        "Shared Bed"
+      ],
+      [
+        "Eldest Brother",
+        "Shared Bed"
+      ],
+      [
+        "Puzzle Answer",
+        "Second Brother"
+      ],
+      [
+        "Eldest Brother",
+        "Second Brother"
+      ]
+    ],
+    "count": 11,
+    "create_time": 1761107262,
+    "update_time": 1761107262,
+    "_id": "doc-96f8a23b2abbf0d08a44940286de792d"
+  },
+  "doc-4c820ebc568ba6350f3bc28e2007e192": {
+    "relation_pairs": [
+      [
+        "Letter",
+        "Parents"
+      ],
+      [
+        "Grandfather",
+        "Letter"
+      ],
+      [
+        "2024",
+        "Child"
+      ],
+      [
+        "Child",
+        "Narrator"
+      ],
+      [
+        "2000",
+        "Narrator"
+      ],
+      [
+        "2023",
+        "Narrator"
+      ],
+      [
+        "2027",
+        "Narrator"
+      ],
+      [
+        "Grandfather",
+        "Narrator"
+      ],
+      [
+        "2009",
+        "Grandfather"
+      ],
+      [
+        "Boyfriend",
+        "Narrator"
+      ],
+      [
+        "Grandfather",
+        "Masked Person"
+      ],
+      [
+        "Narrator",
+        "Parents"
+      ],
+      [
+        "Letter",
+        "Narrator"
+      ]
+    ],
+    "count": 13,
+    "create_time": 1761107306,
+    "update_time": 1761107306,
+    "_id": "doc-4c820ebc568ba6350f3bc28e2007e192"
+  },
+  "doc-861490f55bcd15d4554f7512f39152c8": {
+    "relation_pairs": [
+      [
+        "2024",
+        "Narrator"
+      ],
+      [
+        "Gender Transformation",
+        "Narrator"
+      ],
+      [
+        "Grandfather",
+        "Letter"
+      ],
+      [
+        "Child",
+        "Narrator"
+      ],
+      [
+        "2000",
+        "Narrator"
+      ],
+      [
+        "Masked Person",
+        "Narrator"
+      ],
+      [
+        "2023",
+        "Narrator"
+      ],
+      [
+        "2000",
+        "Child"
+      ],
+      [
+        "27th Birthday",
+        "Letter"
+      ],
+      [
+        "Grandfather",
+        "Narrator"
+      ],
+      [
+        "Car Accident",
+        "Narrator"
+      ],
+      [
+        "Narrator",
+        "Time Loop"
+      ],
+      [
+        "2009",
+        "Grandfather"
+      ],
+      [
+        "Boyfriend",
+        "Narrator"
+      ],
+      [
+        "Letter",
+        "Narrator"
+      ],
+      [
+        "2009",
+        "Narrator"
+      ]
+    ],
+    "count": 16,
+    "create_time": 1761107330,
+    "update_time": 1761107330,
+    "_id": "doc-861490f55bcd15d4554f7512f39152c8"
+  }
+}

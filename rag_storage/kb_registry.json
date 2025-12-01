@@ -1,0 +1,38 @@
+{
+  "game_puzzle1": {
+    "kb_id": "game_puzzle1",
+    "name": "situation_puzzle: puzzle_1_en",
+    "description": "Knowledge base for situation_puzzle game: puzzle_1_en",
+    "working_dir": "F:\\files\\workspace\\Echoes-of-Deceit\\demo\\rag_storage\\game_puzzle1",
+    "provider_type": "lightrag",
+    "created_at": "2025-10-22 12:27:01",
+    "updated_at": "2025-10-22T04:27:42.767316",
+    "metadata": {
+      "game_id": "puzzle1",
+      "game_type": "situation_puzzle",
+      "source_files": [
+        "F:\\files\\workspace\\Echoes-of-Deceit\\data\\situation_puzzles\\puzzle1\\puzzle_1_en.json"
+      ],
+      "document_count": 4
+    },
+    "status": "active"
+  },
+  "game_puzzle2": {
+    "kb_id": "game_puzzle2",
+    "name": "situation_puzzle: puzzle2",
+    "description": "Knowledge base for situation_puzzle game: puzzle2",
+    "working_dir": "F:\\files\\workspace\\Echoes-of-Deceit\\demo\\rag_storage\\game_puzzle2",
+    "provider_type": "lightrag",
+    "created_at": "2025-10-22 12:27:42",
+    "updated_at": "2025-10-22T04:28:50.730835",
+    "metadata": {
+      "game_id": "puzzle2",
+      "game_type": "situation_puzzle",
+      "source_files": [
+        "F:\\files\\workspace\\Echoes-of-Deceit\\data\\situation_puzzles\\puzzle2\\puzzle2.json"
+      ],
+      "document_count": 4
+    },
+    "status": "active"
+  }
+}

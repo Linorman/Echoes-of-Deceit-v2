@@ -1,0 +1,70 @@
+{
+  "doc-6b9f595ec0a1e10d78b0214ca06e43a9": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-6b9f595ec0a1e10d78b0214ca06e43a9"
+    ],
+    "content_summary": "Puzzle statement: I have two older brothers, and the three of us have slept in the same bed since we were young. One day, my second brother died of illness, and shortly after, I killed my eldest brother.",
+    "content_length": 203,
+    "created_at": "2025-10-22T04:27:02.251325+00:00",
+    "updated_at": "2025-10-22T04:27:26.520925+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20251022_122702_cafbdb1a",
+    "metadata": {
+      "processing_start_time": 1761107222,
+      "processing_end_time": 1761107246
+    }
+  },
+  "doc-96f8a23b2abbf0d08a44940286de792d": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-96f8a23b2abbf0d08a44940286de792d"
+    ],
+    "content_summary": "Puzzle answer: My two older brothers are twins. We have always been very close since we were young, sleeping in the same bed. The eldest brother sleeps on my left, and the second brother sleeps on my right. After more than ten years, I have gotten us...",
+    "content_length": 507,
+    "created_at": "2025-10-22T04:27:02.251325+00:00",
+    "updated_at": "2025-10-22T04:27:42.754149+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20251022_122702_682291a5",
+    "metadata": {
+      "processing_start_time": 1761107222,
+      "processing_end_time": 1761107262
+    }
+  },
+  "doc-4c820ebc568ba6350f3bc28e2007e192": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-4c820ebc568ba6350f3bc28e2007e192"
+    ],
+    "content_summary": "Puzzle statement: 2000年\n我出生了，爷爷是我唯一的亲人，他告诉我以后会见到我的父母\n2009年\n爷爷被一个蒙面人鲨三了，临三前他给了我一封信，让我27岁生日那天打开，之后我便被收养了\n2023年\n我怀孕了，医生告诉我，我的身体有些特殊，之后男友便消失的无影无踪\n2024年\n我刚生完孩子，孩子就被偷了\n2027年\n我出了一场车祸，做了一场手术，术后我又见到了消失4年的男友，生日那天我想起爷爷那封信，打开后我终于知道我的父母是谁了…",
+    "content_length": 227,
+    "created_at": "2025-10-22T04:27:42.785507+00:00",
+    "updated_at": "2025-10-22T04:28:26.645779+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20251022_122742_42115f33",
+    "metadata": {
+      "processing_start_time": 1761107262,
+      "processing_end_time": 1761107306
+    }
+  },
+  "doc-861490f55bcd15d4554f7512f39152c8": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-861490f55bcd15d4554f7512f39152c8"
+    ],
+    "content_summary": "Puzzle answer: 我出生于2000年，9岁那年爷爷被一个蒙面人鲨死，临死前交给了我一封信叫我27岁生日那天再打开。23岁那年我怀孕了，并得知自己是一个双性人，男友就消失了，24岁，我生下孩子后孩子被人偷走了。27岁，因为车祸我彻底变成了男性，我照了镜子发现我竟然就是当年消失的男朋友，我打开了爷爷那封信，得知我今后的人生会不受控制的穿越，之前遇到的男友，爷爷甚至我的孩子都是我自己。接下来的我必须回到特定的时间节点，保证时间线的完整性，否则所有的我都将消失。第一次的我穿越回了2023年，...",
+    "content_length": 549,
+    "created_at": "2025-10-22T04:27:42.791034+00:00",
+    "updated_at": "2025-10-22T04:28:50.718309+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20251022_122742_eb7d9c5e",
+    "metadata": {
+      "processing_start_time": 1761107262,
+      "processing_end_time": 1761107330
+    }
+  }
+}

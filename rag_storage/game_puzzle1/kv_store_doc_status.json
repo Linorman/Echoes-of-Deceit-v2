@@ -1,0 +1,36 @@
+{
+  "doc-6b9f595ec0a1e10d78b0214ca06e43a9": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-6b9f595ec0a1e10d78b0214ca06e43a9"
+    ],
+    "content_summary": "Puzzle statement: I have two older brothers, and the three of us have slept in the same bed since we were young. One day, my second brother died of illness, and shortly after, I killed my eldest brother.",
+    "content_length": 203,
+    "created_at": "2025-10-22T04:27:02.251325+00:00",
+    "updated_at": "2025-10-22T04:27:26.520925+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20251022_122702_cafbdb1a",
+    "metadata": {
+      "processing_start_time": 1761107222,
+      "processing_end_time": 1761107246
+    }
+  },
+  "doc-96f8a23b2abbf0d08a44940286de792d": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-96f8a23b2abbf0d08a44940286de792d"
+    ],
+    "content_summary": "Puzzle answer: My two older brothers are twins. We have always been very close since we were young, sleeping in the same bed. The eldest brother sleeps on my left, and the second brother sleeps on my right. After more than ten years, I have gotten us...",
+    "content_length": 507,
+    "created_at": "2025-10-22T04:27:02.251325+00:00",
+    "updated_at": "2025-10-22T04:27:42.754149+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20251022_122702_682291a5",
+    "metadata": {
+      "processing_start_time": 1761107222,
+      "processing_end_time": 1761107262
+    }
+  }
+}

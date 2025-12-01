@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d11" for="edge" attr.name="created_at" attr.type="long"/>
+<key id="d10" for="edge" attr.name="file_path" attr.type="string"/>
+<key id="d9" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d8" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d7" for="edge" attr.name="description" attr.type="string"/>
+<key id="d6" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d5" for="node" attr.name="created_at" attr.type="long"/>
+<key id="d4" for="node" attr.name="file_path" attr.type="string"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Narrator">
+  <data key="d0">Narrator</data>
+  <data key="d1">person</data>
+  <data key="d2">The narrator is the central character who recounts key life events from 2000 to 2027, including being raised by their grandfather, becoming a parent, and discovering the identity of their parents.&lt;SEP&gt;The narrator is the central character who experiences a complex time-loop life involving gender transformation, self-parenting, and interactions with past and future versions of themselves.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107318</data>
+</node>
+<node id="Grandfather">
+  <data key="d0">Grandfather</data>
+  <data key="d1">person</data>
+  <data key="d2">The grandfather is the narrator's only known relative at birth and raises the narrator until his death in 2009; he leaves a letter to be opened on the narrator's 27th birthday.&lt;SEP&gt;The grandfather is a figure in the narrator's early life who is killed in 2009 by a masked version of the narrator and passes on a crucial letter before dying.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107318</data>
+</node>
+<node id="Masked Person">
+  <data key="d0">Masked Person</data>
+  <data key="d1">person</data>
+  <data key="d2">The masked person is responsible for the grandfather's death in 2009.&lt;SEP&gt;The masked person is the narrator's future self who kills the grandfather in 2009 to ensure the timeline remains intact.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107318</data>
+</node>
+<node id="Boyfriend">
+  <data key="d0">Boyfriend</data>
+  <data key="d1">person</data>
+  <data key="d2">The boyfriend abandons the narrator in 2023 after learning about her unusual physical condition and reappears in 2027 following her surgery.&lt;SEP&gt;The boyfriend is the male version of the narrator from a different point in the time loop, who disappears after the narrator becomes pregnant at age 23.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107318</data>
+</node>
+<node id="Child">
+  <data key="d0">Child</data>
+  <data key="d1">person</data>
+  <data key="d2">The child is born to the narrator in 2024 and is immediately stolen after birth.&lt;SEP&gt;The child is the offspring of the narrator, later revealed to be another version of the narrator, and is stolen after birth to maintain the time loop.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107318</data>
+</node>
+<node id="Letter">
+  <data key="d0">Letter</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The letter is given by the grandfather to the narrator before his death and is to be opened on the narrator's 27th birthday; it reveals the identity of the narrator's parents.&lt;SEP&gt;The letter is given by the grandfather to the narrator at age 9 and instructs the narrator to open it on their 27th birthday, revealing the truth about the time loop.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107318</data>
+</node>
+<node id="Parents">
+  <data key="d0">Parents</data>
+  <data key="d1">person</data>
+  <data key="d2">The narrator's parents are unknown until the letter is opened in 2027, at which point their identity is revealed.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107297</data>
+</node>
+<node id="2000">
+  <data key="d0">2000</data>
+  <data key="d1">event</data>
+  <data key="d2">The year 2000 marks the narrator's birth and the beginning of their life with their grandfather.&lt;SEP&gt;The year 2000 marks the birth of the narrator and the endpoint of the final time loop where the narrator returns with the child to begin the cycle anew.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107318</data>
+</node>
+<node id="2009">
+  <data key="d0">2009</data>
+  <data key="d1">event</data>
+  <data key="d2">The year 2009 is when the grandfather is killed by a masked person and gives the narrator the letter.&lt;SEP&gt;The year 2009 is when the grandfather is killed by the masked narrator, triggering key events in the timeline.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107321</data>
+</node>
+<node id="2023">
+  <data key="d0">2023</data>
+  <data key="d1">event</data>
+  <data key="d2">The year 2023 is when the narrator becomes pregnant and her boyfriend abandons her after learning about her special physical condition.&lt;SEP&gt;The year 2023 is when the narrator must ensure their female self becomes pregnant to continue the timeline.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107321</data>
+</node>
+<node id="2024">
+  <data key="d0">2024</data>
+  <data key="d1">event</data>
+  <data key="d2">The year 2024 is when the narrator gives birth and her child is stolen.&lt;SEP&gt;The year 2024 is when the narrator, now 42 years old, realizes they resemble their grandfather and completes the final stage of the loop.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107321</data>
+</node>
+<node id="2027">
+  <data key="d0">2027</data>
+  <data key="d1">event</data>
+  <data key="d2">The year 2027 is when the narrator survives a car accident, undergoes surgery, reunites with her boyfriend, and opens the letter revealing her parents' identity.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107300</data>
+</node>
+<node id="Shā Sān">
+  <data key="d0">Shā Sān</data>
+  <data key="d1">concept</data>
+  <data key="d2">"Shā Sān" appears to be a mistranslation or typographical error in the original text, likely intended to mean "killed" (from Chinese "杀了"); it is not a person or entity but a corrupted verb phrase.</data>
+  <data key="d3">chunk-4c820ebc568ba6350f3bc28e2007e192</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107300</data>
+</node>
+<node id="Time Loop">
+  <data key="d0">Time Loop</data>
+  <data key="d1">concept</data>
+  <data key="d2">The time loop is a recurring cycle in which the narrator travels to specific points in time to ensure their own existence and the continuity of events.</data>
+  <data key="d3">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107318</data>
+</node>
+<node id="Car Accident">
+  <data key="d0">Car Accident</data>
+  <data key="d1">event</data>
+  <data key="d2">The car accident at age 27 causes the narrator’s complete physical transformation into a male and triggers the revelation of their true identity.</data>
+  <data key="d3">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107321</data>
+</node>
+<node id="Gender Transformation">
+  <data key="d0">Gender Transformation</data>
+  <data key="d1">concept</data>
+  <data key="d2">Gender transformation refers to the narrator’s shift from female to male identity, both biologically and through time-loop mechanics.</data>
+  <data key="d3">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107321</data>
+</node>
+<node id="27th Birthday">
+  <data key="d0">27th Birthday</data>
+  <data key="d1">event</data>
+  <data key="d2">The 27th birthday is the specific date when the narrator is instructed to open the letter from their grandfather, triggering key revelations about the time loop.</data>
+  <data key="d3">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107321</data>
+</node>
+<edge source="Narrator" target="Grandfather">
+  <data key="d6">2.0</data>
+  <data key="d7">The grandfather is the narrator's only known relative and raises them from birth until his death in 2009.&lt;SEP&gt;The narrator is raised by or connected to their grandfather, who gives them a letter before dying.</data>
+  <data key="d8">family relationship,guardianship,inheritance</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107322</data>
+</edge>
+<edge source="Narrator" target="Letter">
+  <data key="d6">2.0</data>
+  <data key="d7">The narrator keeps the letter until their 27th birthday and opens it to learn the identity of their parents.&lt;SEP&gt;The narrator receives and later opens the letter, which reveals the truth about the time loop and their identity.</data>
+  <data key="d8">possession,revelation</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107325</data>
+</edge>
+<edge source="Narrator" target="Boyfriend">
+  <data key="d6">2.0</data>
+  <data key="d7">The boyfriend is in a relationship with the narrator, abandons her in 2023, and reappears in 2027 after her surgery.&lt;SEP&gt;The boyfriend is revealed to be the narrator’s future male self, forming a romantic relationship with their past female self.</data>
+  <data key="d8">abandonment,identity,reunion,romantic relationship</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107323</data>
+</edge>
+<edge source="Narrator" target="Child">
+  <data key="d6">2.0</data>
+  <data key="d7">The narrator gives birth to a child in 2024, who is immediately stolen.&lt;SEP&gt;The narrator gives birth to the child, who is also a version of themselves, and later steals the child to return them to 2000.</data>
+  <data key="d8">identity,parent-child,parent-child relationship,separation</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107324</data>
+</edge>
+<edge source="Narrator" target="Parents">
+  <data key="d6">1.0</data>
+  <data key="d7">The narrator does not know their parents until opening the letter in 2027.</data>
+  <data key="d8">family relationship,unknown identity</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107303</data>
+</edge>
+<edge source="Narrator" target="2000">
+  <data key="d6">2.0</data>
+  <data key="d7">The narrator is born in the year 2000.&lt;SEP&gt;The narrator returns to the year 2000 with the newborn child (their younger self) to complete the temporal loop by raising their past self.</data>
+  <data key="d8">birth event,life cycle closure,time travel</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107330</data>
+</edge>
+<edge source="Narrator" target="2023">
+  <data key="d6">2.0</data>
+  <data key="d7">In 2023, the narrator becomes pregnant and is abandoned by her boyfriend.&lt;SEP&gt;The narrator travels to 2023 to initiate a relationship with their female self to ensure conception.</data>
+  <data key="d8">abandonment,pregnancy,romantic obligation,time travel</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107327</data>
+</edge>
+<edge source="Narrator" target="2027">
+  <data key="d6">1.0</data>
+  <data key="d7">In 2027, the narrator experiences a car accident, surgery, reunion with boyfriend, and revelation about parents.</data>
+  <data key="d8">accident,reunion,revelation,surgery</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107306</data>
+</edge>
+<edge source="Narrator" target="Masked Person">
+  <data key="d6">1.0</data>
+  <data key="d7">The masked person is a future version of the narrator who kills the grandfather to preserve the timeline.</data>
+  <data key="d8">identity,time travel</data>
+  <data key="d9">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107323</data>
+</edge>
+<edge source="Narrator" target="Time Loop">
+  <data key="d6">1.0</data>
+  <data key="d7">The narrator is both subject to and responsible for maintaining the time loop to ensure their own existence.</data>
+  <data key="d8">causality,participation</data>
+  <data key="d9">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107325</data>
+</edge>
+<edge source="Narrator" target="2009">
+  <data key="d6">1.0</data>
+  <data key="d7">The narrator travels back to 2009 to kill their grandfather as the masked person, ensuring the timeline proceeds correctly.</data>
+  <data key="d8">pivotal event,time travel</data>
+  <data key="d9">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107326</data>
+</edge>
+<edge source="Narrator" target="2024">
+  <data key="d6">1.0</data>
+  <data key="d7">In 2024, the narrator recognizes their resemblance to their grandfather and completes the loop by returning the child to 2000.</data>
+  <data key="d8">aging,realization</data>
+  <data key="d9">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107328</data>
+</edge>
+<edge source="Narrator" target="Car Accident">
+  <data key="d6">1.0</data>
+  <data key="d7">The car accident causes the narrator’s full transformation into a male and leads to the realization that they are their own boyfriend.</data>
+  <data key="d8">identity revelation,transformation trigger</data>
+  <data key="d9">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107328</data>
+</edge>
+<edge source="Narrator" target="Gender Transformation">
+  <data key="d6">1.0</data>
+  <data key="d7">The narrator undergoes a gender transformation from female to male, which is both biological and tied to the time loop mechanics.</data>
+  <data key="d8">identity,personal change</data>
+  <data key="d9">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107329</data>
+</edge>
+<edge source="Grandfather" target="Letter">
+  <data key="d6">2.0</data>
+  <data key="d7">The grandfather gives the narrator a letter before his death with instructions to open it on their 27th birthday.&lt;SEP&gt;The grandfather gives the letter to the narrator before dying, instructing them to open it at age 27.</data>
+  <data key="d8">instruction,message delivery,possession</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107325</data>
+</edge>
+<edge source="Grandfather" target="Masked Person">
+  <data key="d6">1.0</data>
+  <data key="d7">The masked person kills the grandfather in 2009.</data>
+  <data key="d8">death,violence</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107304</data>
+</edge>
+<edge source="Grandfather" target="2009">
+  <data key="d6">2.0</data>
+  <data key="d7">The grandfather dies in 2009 at the hands of a masked person.&lt;SEP&gt;The grandfather is killed in 2009 by the masked narrator, a pivotal event that sets the narrator on their destined path.</data>
+  <data key="d8">death event,timeline anchor</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192&lt;SEP&gt;chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107327</data>
+</edge>
+<edge source="Child" target="2024">
+  <data key="d6">1.0</data>
+  <data key="d7">The child is born and abducted in 2024.</data>
+  <data key="d8">abduction,birth</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107303</data>
+</edge>
+<edge source="Child" target="2000">
+  <data key="d6">1.0</data>
+  <data key="d7">The child is taken back to 2000 by the narrator to restart the life cycle and close the time loop.</data>
+  <data key="d8">origin point,time travel</data>
+  <data key="d9">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107325</data>
+</edge>
+<edge source="Letter" target="Parents">
+  <data key="d6">1.0</data>
+  <data key="d7">The letter contains information that reveals the identity of the narrator's parents.</data>
+  <data key="d8">identity revelation,information source</data>
+  <data key="d9">chunk-4c820ebc568ba6350f3bc28e2007e192</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107302</data>
+</edge>
+<edge source="Letter" target="27th Birthday">
+  <data key="d6">1.0</data>
+  <data key="d7">The letter explicitly instructs the narrator to open it on their 27th birthday, making this date a critical condition for its revelation.</data>
+  <data key="d8">instruction,temporal condition</data>
+  <data key="d9">chunk-861490f55bcd15d4554f7512f39152c8</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107326</data>
+</edge>
+</graph></graphml>

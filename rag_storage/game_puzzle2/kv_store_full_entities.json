@@ -1,0 +1,72 @@
+{
+  "doc-6b9f595ec0a1e10d78b0214ca06e43a9": {
+    "entity_names": [
+      "Second Brother",
+      "Illness",
+      "Narrator",
+      "Bed",
+      "Eldest Brother"
+    ],
+    "count": 5,
+    "create_time": 1761107246,
+    "update_time": 1761107246,
+    "_id": "doc-6b9f595ec0a1e10d78b0214ca06e43a9"
+  },
+  "doc-96f8a23b2abbf0d08a44940286de792d": {
+    "entity_names": [
+      "Shared Bed",
+      "Serious Illness",
+      "Second Brother",
+      "Narrator",
+      "Puzzle Answer",
+      "Eldest Brother"
+    ],
+    "count": 6,
+    "create_time": 1761107262,
+    "update_time": 1761107262,
+    "_id": "doc-96f8a23b2abbf0d08a44940286de792d"
+  },
+  "doc-4c820ebc568ba6350f3bc28e2007e192": {
+    "entity_names": [
+      "Parents",
+      "2000",
+      "Shā Sān",
+      "Child",
+      "Masked Person",
+      "Narrator",
+      "2009",
+      "Letter",
+      "2027",
+      "2023",
+      "Grandfather",
+      "Boyfriend",
+      "2024"
+    ],
+    "count": 13,
+    "create_time": 1761107306,
+    "update_time": 1761107306,
+    "_id": "doc-4c820ebc568ba6350f3bc28e2007e192"
+  },
+  "doc-861490f55bcd15d4554f7512f39152c8": {
+    "entity_names": [
+      "Time Loop",
+      "2000",
+      "27th Birthday",
+      "Child",
+      "Masked Person",
+      "Narrator",
+      "2009",
+      "Letter",
+      "Gender Transformation",
+      "2023",
+      "Grandfather",
+      "Boyfriend",
+      "2024",
+      "Car Accident"
+    ],
+    "count": 14,
+    "create_time": 1761107330,
+    "update_time": 1761107330,
+    "_id": "doc-861490f55bcd15d4554f7512f39152c8"
+  }
+}

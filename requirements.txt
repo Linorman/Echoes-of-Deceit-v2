@@ -1,69 +1,76 @@
+# ==================== Echoes-of-Deceit Requirements ====================
+# Note: Recommend using uv with pyproject.toml for dependency management
+# This file is kept as a fallback for compatibility
+
+# ==================== Core LLM & AI ====================
 ollama>=0.1.0
 openai>=1.0.0
 transformers>=4.30.0
 torch>=2.0.0
-requests>=2.28.0
-pyyaml>=6.0
 accelerate>=0.20.0
 bitsandbytes>=0.41.0
 sentencepiece>=0.1.99
-protobuf>=3.20.0
-lightrag-hku[api]>=1.4.8
-qdrant-client>=1.7.0
-flask>=3.0.0
-flask-cors>=4.0.0
-nest-asyncio>=1.5.0
-werkzeug>=3.0.0
-pdfplumber>=0.10.0
-python-docx>=1.0.0
-pypdf2>=3.0.0
-nltk>=3.8.0
-rouge>=1.0.1
-git+https://github.com/Linorman/MiniRAG.git
 sentence-transformers
-mcp[cli]
-git+https://github.com/Linorman/MemOS.git
+tiktoken
 
-accelerate
-aiofiles
-aiohttp
-configparser
-graspologic
-json_repair
-httpx
-
-# database packages
-networkx
-nltk
-
-# Basic modules
-numpy
-pipmaster
-pydantic
-
-# File manipulation libraries
-PyPDF2
-python-docx
-python-dotenv
-python-pptx
-rouge
-
-setuptools
-tenacity
-
-# CLI packages
-click>=8.0.0
-
-# WebUI packages
-streamlit>=1.29.0
-
-# LangChain & LangGraph
+# ==================== LangChain & LangGraph ====================
 langchain>=0.3.0
 langchain-core>=0.3.0
 langgraph>=0.2.0
 langgraph-checkpoint>=2.0.0
 
-# LLM packages
-tiktoken
+# ==================== RAG & Vector DB ====================
+lightrag-hku[api]>=1.4.8
+qdrant-client>=1.7.0
+networkx
+graspologic
+
+# ==================== MCP ====================
+mcp[cli]
+
+# ==================== Web Framework ====================
+flask>=3.0.0
+flask-cors>=4.0.0
+werkzeug>=3.0.0
+streamlit>=1.29.0
+
+# ==================== HTTP & Async ====================
+requests>=2.28.0
+aiohttp
+aiofiles
+httpx
+nest-asyncio>=1.5.0
+
+# ==================== Document Processing ====================
+pdfplumber>=0.10.0
+pypdf2>=3.0.0
+python-docx>=1.0.0
+python-pptx
+
+# ==================== NLP & Text Processing ====================
+nltk>=3.8.0
+rouge>=1.0.1
+
+# ==================== Data & Config ====================
+pyyaml>=6.0
+pydantic
+numpy
+protobuf>=3.20.0
+configparser
+python-dotenv
+json-repair
+
+# ==================== CLI ====================
+click>=8.0.0
+
+# ==================== Utilities ====================
 tqdm
+tenacity
 xxhash
+setuptools
+pipmaster
+
+# ==================== Git Dependencies ====================
+# When using uv, these are read from [tool.uv.sources] in pyproject.toml
+git+https://github.com/Linorman/MiniRAG.git
+git+https://github.com/Linorman/MemOS.git

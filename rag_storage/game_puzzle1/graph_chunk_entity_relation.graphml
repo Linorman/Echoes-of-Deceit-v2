@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d11" for="edge" attr.name="created_at" attr.type="long"/>
+<key id="d10" for="edge" attr.name="file_path" attr.type="string"/>
+<key id="d9" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d8" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d7" for="edge" attr.name="description" attr.type="string"/>
+<key id="d6" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d5" for="node" attr.name="created_at" attr.type="long"/>
+<key id="d4" for="node" attr.name="file_path" attr.type="string"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Narrator">
+  <data key="d0">Narrator</data>
+  <data key="d1">person</data>
+  <data key="d2">The narrator is a person who has two older brothers and admits to killing the eldest brother after the second brother died of illness.&lt;SEP&gt;The narrator is a younger sibling of twin brothers and shares a bed with them, later experiencing discomfort after one brother's death.</data>
+  <data key="d3">chunk-96f8a23b2abbf0d08a44940286de792d&lt;SEP&gt;chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107254</data>
+</node>
+<node id="Second Brother">
+  <data key="d0">Second Brother</data>
+  <data key="d1">person</data>
+  <data key="d2">The second brother is one of the narrator's older siblings who died of illness.&lt;SEP&gt;The second brother is the other twin older sibling who sleeps on the narrator's right side and dies of a serious illness.</data>
+  <data key="d3">chunk-96f8a23b2abbf0d08a44940286de792d&lt;SEP&gt;chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107254</data>
+</node>
+<node id="Eldest Brother">
+  <data key="d0">Eldest Brother</data>
+  <data key="d1">person</data>
+  <data key="d2">The eldest brother is the oldest of the three siblings and was killed by the narrator.&lt;SEP&gt;The eldest brother is one of the twin older siblings who sleeps on the narrator's left side.</data>
+  <data key="d3">chunk-96f8a23b2abbf0d08a44940286de792d&lt;SEP&gt;chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107254</data>
+</node>
+<node id="Bed">
+  <data key="d0">Bed</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The bed is where the three brothers have slept together since they were young.</data>
+  <data key="d3">chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107241</data>
+</node>
+<node id="Illness">
+  <data key="d0">Illness</data>
+  <data key="d1">concept</data>
+  <data key="d2">Illness is the cause of death for the second brother.</data>
+  <data key="d3">chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107241</data>
+</node>
+<node id="Serious Illness">
+  <data key="d0">Serious Illness</data>
+  <data key="d1">concept</data>
+  <data key="d2">A serious illness is the cause of the second brother's death.</data>
+  <data key="d3">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107254</data>
+</node>
+<node id="Shared Bed">
+  <data key="d0">Shared Bed</data>
+  <data key="d1">artifact</data>
+  <data key="d2">The shared bed is where the narrator and their two older brothers have slept together since childhood.</data>
+  <data key="d3">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107254</data>
+</node>
+<node id="Puzzle Answer">
+  <data key="d0">Puzzle Answer</data>
+  <data key="d1">content</data>
+  <data key="d2">The puzzle answer is a narrative riddle describing a disturbing yet logically structured scenario involving siblings and a bed.</data>
+  <data key="d3">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d4">unknown_source</data>
+  <data key="d5">1761107254</data>
+</node>
+<edge source="Narrator" target="Second Brother">
+  <data key="d6">2.0</data>
+  <data key="d7">The narrator and the second brother are siblings who shared a bed since childhood.&lt;SEP&gt;The narrator and the second brother are siblings who shared a bed, with the second on the narrator's right, until his death from illness.</data>
+  <data key="d8">cohabitation,loss,shared living,sibling relationship</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d&lt;SEP&gt;chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107258</data>
+</edge>
+<edge source="Narrator" target="Eldest Brother">
+  <data key="d6">2.0</data>
+  <data key="d7">The narrator and the eldest brother are siblings, and the narrator killed the eldest brother.&lt;SEP&gt;The narrator and the eldest brother are siblings who have shared a bed since childhood, with the eldest on the narrator's left.</data>
+  <data key="d8">cohabitation,homicide,sibling relationship</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d&lt;SEP&gt;chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107256</data>
+</edge>
+<edge source="Narrator" target="Bed">
+  <data key="d6">1.0</data>
+  <data key="d7">The narrator has slept in the same bed with his two brothers since they were young.</data>
+  <data key="d8">childhood memory,cohabitation</data>
+  <data key="d9">chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107244</data>
+</edge>
+<edge source="Narrator" target="Shared Bed">
+  <data key="d6">1.0</data>
+  <data key="d7">The narrator has a long-standing habit of sleeping in the shared bed with both brothers, leading to discomfort when one side becomes empty.</data>
+  <data key="d8">emotional attachment,sleeping arrangement</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107258</data>
+</edge>
+<edge source="Narrator" target="Puzzle Answer">
+  <data key="d6">1.0</data>
+  <data key="d7">The narrator is the central character and speaker within the puzzle answer narrative.</data>
+  <data key="d8">content subject,narrative perspective</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107261</data>
+</edge>
+<edge source="Second Brother" target="Illness">
+  <data key="d6">1.0</data>
+  <data key="d7">The second brother died due to an illness.</data>
+  <data key="d8">cause of death,medical condition</data>
+  <data key="d9">chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107243</data>
+</edge>
+<edge source="Second Brother" target="Eldest Brother">
+  <data key="d6">2.0</data>
+  <data key="d7">The second brother and the eldest brother are siblings who shared a bed with the narrator since childhood.&lt;SEP&gt;The eldest brother and the second brother are twins who both shared a bed with the narrator.</data>
+  <data key="d8">cohabitation,shared living,sibling relationship,twin siblings</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d&lt;SEP&gt;chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107258</data>
+</edge>
+<edge source="Second Brother" target="Bed">
+  <data key="d6">1.0</data>
+  <data key="d7">The second brother slept in the same bed with his siblings since they were young.</data>
+  <data key="d8">childhood memory,cohabitation</data>
+  <data key="d9">chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107245</data>
+</edge>
+<edge source="Second Brother" target="Serious Illness">
+  <data key="d6">1.0</data>
+  <data key="d7">The second brother died due to a serious illness.</data>
+  <data key="d8">cause of death</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107256</data>
+</edge>
+<edge source="Second Brother" target="Shared Bed">
+  <data key="d6">1.0</data>
+  <data key="d7">The second brother used to sleep on the right side of the shared bed before his death.</data>
+  <data key="d8">sleeping arrangement</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107257</data>
+</edge>
+<edge source="Second Brother" target="Puzzle Answer">
+  <data key="d6">1.0</data>
+  <data key="d7">The second brother is a character featured in the puzzle answer whose death drives the narrative's twist.</data>
+  <data key="d8">character,narrative element</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107259</data>
+</edge>
+<edge source="Eldest Brother" target="Bed">
+  <data key="d6">1.0</data>
+  <data key="d7">The eldest brother slept in the same bed with his siblings since they were young.</data>
+  <data key="d8">childhood memory,cohabitation</data>
+  <data key="d9">chunk-6b9f595ec0a1e10d78b0214ca06e43a9</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107245</data>
+</edge>
+<edge source="Eldest Brother" target="Shared Bed">
+  <data key="d6">1.0</data>
+  <data key="d7">The eldest brother sleeps on the left side of the shared bed.</data>
+  <data key="d8">sleeping arrangement</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107259</data>
+</edge>
+<edge source="Eldest Brother" target="Puzzle Answer">
+  <data key="d6">1.0</data>
+  <data key="d7">The eldest brother is a character featured in the puzzle answer.</data>
+  <data key="d8">character,narrative element</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107262</data>
+</edge>
+<edge source="Shared Bed" target="Puzzle Answer">
+  <data key="d6">1.0</data>
+  <data key="d7">The shared bed is a central object in the puzzle answer that symbolizes the sibling arrangement and the narrator's psychological state.</data>
+  <data key="d8">narrative setting,symbolic object</data>
+  <data key="d9">chunk-96f8a23b2abbf0d08a44940286de792d</data>
+  <data key="d10">unknown_source</data>
+  <data key="d11">1761107260</data>
+</edge>
+</graph></graphml>
