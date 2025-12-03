@@ -1,7 +1,8 @@
 provider: ollama
 
 ollama:
-  base_url: http://localhost:11434
+  base_url: ${OLLAMA_API_BASE:http://localhost:11434}
+  api_key: ${OLLAMA_API_KEY:}  # Optional: for authenticated Ollama deployments
   llm_model_name: qwen3:4b-instruct-2507-q4_K_M
   embedding_model_name: qwen3-embedding:4b
   embedding_dim: 2560

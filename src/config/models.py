@@ -52,11 +52,19 @@ class GameConfig(BaseModel):
 
 class OllamaConfig(BaseModel):
     base_url: str = "http://localhost:11434"
+    api_key: str = ""  # Optional: for authenticated Ollama deployments
     llm_model_name: str = "qwen2.5:7b"
     embedding_model_name: str = "nomic-embed-text"
     embedding_dim: int = 768
     default_temperature: float = 0.7
     max_tokens: int = 2048
+
+    @field_validator("base_url", "api_key", mode="before")
+    @classmethod
+    def resolve_env(cls, v: Any) -> str:
+        if isinstance(v, str):
+            return resolve_env_vars(v)
+        return v
 
 
 class APIConfig(BaseModel):

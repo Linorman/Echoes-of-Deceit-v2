@@ -48,6 +48,7 @@ class ModelProviderRegistry:
                 model_name=cfg.llm_model_name,
                 temperature=cfg.default_temperature,
                 max_tokens=cfg.max_tokens,
+                api_key=cfg.api_key,
             )
         else:
             cfg = self._config.api
@@ -75,6 +76,7 @@ class ModelProviderRegistry:
             self._embedding_client = create_ollama_embedding_client(
                 base_url=cfg.base_url,
                 model_name=cfg.embedding_model_name,
+                api_key=cfg.api_key,
             )
         else:
             cfg = self._config.api
