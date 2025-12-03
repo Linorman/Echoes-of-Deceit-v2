@@ -58,15 +58,22 @@ def create_ollama_llm_client(
     model_name: str = "qwen2.5:7b",
     temperature: float = 0.7,
     max_tokens: int = 2048,
+    api_key: str = "",
     **kwargs,
 ) -> LangChainLLMClient:
     from langchain_ollama import ChatOllama
+
+    # Build client_kwargs for authenticated deployments
+    client_kwargs = {}
+    if api_key:
+        client_kwargs["headers"] = {"Authorization": f"Bearer {api_key}"}
 
     chat_model = ChatOllama(
         base_url=base_url,
         model=model_name,
         temperature=temperature,
         num_predict=max_tokens,
+        client_kwargs=client_kwargs if client_kwargs else None,
         **kwargs,
     )
     return LangChainLLMClient(chat_model, temperature=temperature, max_tokens=max_tokens)
@@ -75,13 +82,20 @@ def create_ollama_llm_client(
 def create_ollama_embedding_client(
     base_url: str = "http://localhost:11434",
     model_name: str = "nomic-embed-text",
+    api_key: str = "",
     **kwargs,
 ) -> LangChainEmbeddingClient:
     from langchain_ollama import OllamaEmbeddings
 
+    # Build client_kwargs for authenticated deployments
+    client_kwargs = {}
+    if api_key:
+        client_kwargs["headers"] = {"Authorization": f"Bearer {api_key}"}
+
     embeddings = OllamaEmbeddings(
         base_url=base_url,
         model=model_name,
+        client_kwargs=client_kwargs if client_kwargs else None,
         **kwargs,
     )
     return LangChainEmbeddingClient(embeddings)

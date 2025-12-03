@@ -35,35 +35,46 @@ class ModelProviderRegistry:
 
     @property
     def provider(self) -> str:
+        """Legacy property - returns the default provider."""
         return self._config.provider
+
+    @property
+    def llm_provider(self) -> str:
+        """Get the LLM provider name."""
+        return self._config.get_llm_config().provider
+
+    @property
+    def embedding_provider(self) -> str:
+        """Get the Embedding provider name."""
+        return self._config.get_embedding_config().provider
 
     def get_llm_client(self) -> LLMClient:
         if self._llm_client is not None:
             return self._llm_client
 
-        if self._config.provider == "ollama":
-            cfg = self._config.ollama
+        llm_cfg = self._config.get_llm_config()
+        
+        if llm_cfg.provider == "ollama":
             self._llm_client = create_ollama_llm_client(
-                base_url=cfg.base_url,
-                model_name=cfg.llm_model_name,
-                temperature=cfg.default_temperature,
-                max_tokens=cfg.max_tokens,
-                api_key=cfg.api_key,
+                base_url=llm_cfg.base_url,
+                model_name=llm_cfg.model_name,
+                temperature=llm_cfg.temperature,
+                max_tokens=llm_cfg.max_tokens,
+                api_key=llm_cfg.api_key,
             )
         else:
-            cfg = self._config.api
             self._llm_client = create_openai_llm_client(
-                base_url=cfg.base_url,
-                api_key=cfg.api_key,
-                model_name=cfg.llm_model_name,
-                temperature=cfg.default_temperature,
-                max_tokens=cfg.max_tokens,
+                base_url=llm_cfg.base_url,
+                api_key=llm_cfg.api_key,
+                model_name=llm_cfg.model_name,
+                temperature=llm_cfg.temperature,
+                max_tokens=llm_cfg.max_tokens,
             )
 
         logger.info(
             "Initialized LLM client: provider=%s, model=%s",
-            self._config.provider,
-            cfg.llm_model_name,
+            llm_cfg.provider,
+            llm_cfg.model_name,
         )
         return self._llm_client
 
@@ -71,25 +82,25 @@ class ModelProviderRegistry:
         if self._embedding_client is not None:
             return self._embedding_client
 
-        if self._config.provider == "ollama":
-            cfg = self._config.ollama
+        emb_cfg = self._config.get_embedding_config()
+        
+        if emb_cfg.provider == "ollama":
             self._embedding_client = create_ollama_embedding_client(
-                base_url=cfg.base_url,
-                model_name=cfg.embedding_model_name,
-                api_key=cfg.api_key,
+                base_url=emb_cfg.base_url,
+                model_name=emb_cfg.model_name,
+                api_key=emb_cfg.api_key,
             )
         else:
-            cfg = self._config.api
             self._embedding_client = create_openai_embedding_client(
-                base_url=cfg.base_url,
-                api_key=cfg.api_key,
-                model_name=cfg.embedding_model_name,
+                base_url=emb_cfg.base_url,
+                api_key=emb_cfg.api_key,
+                model_name=emb_cfg.model_name,
             )
 
         logger.info(
             "Initialized Embedding client: provider=%s, model=%s",
-            self._config.provider,
-            cfg.embedding_model_name,
+            emb_cfg.provider,
+            emb_cfg.model_name,
         )
         return self._embedding_client
 
@@ -106,23 +117,18 @@ class ModelProviderRegistry:
         raise TypeError("Embedding client is not a LangChain-based client")
 
     def get_provider_options(self) -> dict:
-        if self._config.provider == "ollama":
-            cfg = self._config.ollama
-            return {
-                "llm_host": cfg.base_url,
-                "llm_model_name": cfg.llm_model_name,
-                "embedding_host": cfg.base_url,
-                "embedding_model_name": cfg.embedding_model_name,
-                "embedding_dim": cfg.embedding_dim,
-            }
-        else:
-            cfg = self._config.api
-            return {
-                "llm_host": cfg.base_url,
-                "llm_model_name": cfg.llm_model_name,
-                "llm_api_key": cfg.api_key,
-                "embedding_host": cfg.base_url,
-                "embedding_model_name": cfg.embedding_model_name,
-                "embedding_api_key": cfg.api_key,
-                "embedding_dim": cfg.embedding_dim,
-            }
+        """Get provider options for RAG and other integrations."""
+        llm_cfg = self._config.get_llm_config()
+        emb_cfg = self._config.get_embedding_config()
+        
+        return {
+            "llm_host": llm_cfg.base_url,
+            "llm_model_name": llm_cfg.model_name,
+            "llm_api_key": llm_cfg.api_key,
+            "llm_provider": llm_cfg.provider,
+            "embedding_host": emb_cfg.base_url,
+            "embedding_model_name": emb_cfg.model_name,
+            "embedding_api_key": emb_cfg.api_key,
+            "embedding_provider": emb_cfg.provider,
+            "embedding_dim": emb_cfg.embedding_dim,
+        }

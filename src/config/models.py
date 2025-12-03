@@ -50,9 +50,43 @@ class GameConfig(BaseModel):
     puzzle: PuzzleConfig = Field(default_factory=PuzzleConfig)
 
 
+class LLMProviderConfig(BaseModel):
+    """Configuration for a single LLM provider."""
+    provider: str = "ollama"
+    base_url: str = "http://localhost:11434"
+    api_key: str = ""
+    model_name: str = "qwen2.5:7b"
+    temperature: float = 0.7
+    max_tokens: int = 2048
+
+    @field_validator("base_url", "api_key", mode="before")
+    @classmethod
+    def resolve_env(cls, v: Any) -> str:
+        if isinstance(v, str):
+            return resolve_env_vars(v)
+        return v
+
+
+class EmbeddingProviderConfig(BaseModel):
+    """Configuration for a single Embedding provider."""
+    provider: str = "ollama"  # "ollama" or "api"
+    base_url: str = "http://localhost:11434"
+    api_key: str = ""
+    model_name: str = "nomic-embed-text"
+    embedding_dim: int = 768
+
+    @field_validator("base_url", "api_key", mode="before")
+    @classmethod
+    def resolve_env(cls, v: Any) -> str:
+        if isinstance(v, str):
+            return resolve_env_vars(v)
+        return v
+
+
+# Legacy configs for backward compatibility
 class OllamaConfig(BaseModel):
     base_url: str = "http://localhost:11434"
-    api_key: str = ""  # Optional: for authenticated Ollama deployments
+    api_key: str = ""
     llm_model_name: str = "qwen2.5:7b"
     embedding_model_name: str = "nomic-embed-text"
     embedding_dim: int = 768
@@ -85,11 +119,67 @@ class APIConfig(BaseModel):
 
 
 class ModelsConfig(BaseModel):
+    # New separate LLM and Embedding configs
+    llm: Optional[LLMProviderConfig] = None
+    embedding: Optional[EmbeddingProviderConfig] = None
+    
+    # Legacy unified provider config (for backward compatibility)
     provider: str = "ollama"
     ollama: OllamaConfig = Field(default_factory=OllamaConfig)
     api: APIConfig = Field(default_factory=APIConfig)
 
+    def get_llm_config(self) -> LLMProviderConfig:
+        """Get the LLM configuration (new style or legacy fallback)."""
+        if self.llm is not None:
+            return self.llm
+        # Fallback to legacy config
+        if self.provider == "ollama":
+            cfg = self.ollama
+            return LLMProviderConfig(
+                provider="ollama",
+                base_url=cfg.base_url,
+                api_key=cfg.api_key,
+                model_name=cfg.llm_model_name,
+                temperature=cfg.default_temperature,
+                max_tokens=cfg.max_tokens,
+            )
+        else:
+            cfg = self.api
+            return LLMProviderConfig(
+                provider="api",
+                base_url=cfg.base_url,
+                api_key=cfg.api_key,
+                model_name=cfg.llm_model_name,
+                temperature=cfg.default_temperature,
+                max_tokens=cfg.max_tokens,
+            )
+
+    def get_embedding_config(self) -> EmbeddingProviderConfig:
+        """Get the Embedding configuration (new style or legacy fallback)."""
+        if self.embedding is not None:
+            return self.embedding
+        # Fallback to legacy config
+        if self.provider == "ollama":
+            cfg = self.ollama
+            return EmbeddingProviderConfig(
+                provider="ollama",
+                base_url=cfg.base_url,
+                api_key=cfg.api_key,
+                model_name=cfg.embedding_model_name,
+                embedding_dim=cfg.embedding_dim,
+            )
+        else:
+            cfg = self.api
+            return EmbeddingProviderConfig(
+                provider="api",
+                base_url=cfg.base_url,
+                api_key=cfg.api_key,
+                model_name=cfg.embedding_model_name,
+                embedding_dim=cfg.embedding_dim,
+            )
+
     def get_active_config(self) -> OllamaConfig | APIConfig:
+        """Legacy method for backward compatibility."""
         if self.provider == "ollama":
             return self.ollama
         return self.api

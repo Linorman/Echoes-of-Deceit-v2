@@ -75,7 +75,7 @@ class TestLangChainEmbeddingClient:
 
 
 class TestCreateOllamaClients:
-    @patch("models.langchain_client.ChatOllama")
+    @patch("langchain_ollama.ChatOllama")
     def test_create_ollama_llm_client(self, mock_chat_ollama):
         mock_instance = MagicMock()
         mock_chat_ollama.return_value = mock_instance
@@ -93,9 +93,10 @@ class TestCreateOllamaClients:
             model="llama2",
             temperature=0.5,
             num_predict=1024,
+            client_kwargs=None,
         )
 
-    @patch("models.langchain_client.OllamaEmbeddings")
+    @patch("langchain_ollama.OllamaEmbeddings")
     def test_create_ollama_embedding_client(self, mock_ollama_embeddings):
         mock_instance = MagicMock()
         mock_ollama_embeddings.return_value = mock_instance
@@ -109,11 +110,12 @@ class TestCreateOllamaClients:
         mock_ollama_embeddings.assert_called_once_with(
             base_url="http://localhost:11434",
             model="nomic-embed-text",
+            client_kwargs=None,
         )
 
 
 class TestCreateOpenAIClients:
-    @patch("models.langchain_client.ChatOpenAI")
+    @patch("langchain_openai.ChatOpenAI")
     def test_create_openai_llm_client(self, mock_chat_openai):
         mock_instance = MagicMock()
         mock_chat_openai.return_value = mock_instance
@@ -136,7 +138,7 @@ class TestCreateOpenAIClients:
             timeout=120.0,
         )
 
-    @patch("models.langchain_client.OpenAIEmbeddings")
+    @patch("langchain_openai.OpenAIEmbeddings")
     def test_create_openai_embedding_client(self, mock_openai_embeddings):
         mock_instance = MagicMock()
         mock_openai_embeddings.return_value = mock_instance
@@ -167,7 +169,7 @@ class TestModelProviderRegistry:
         registry = ModelProviderRegistry(config)
         assert registry.provider == "api"
 
-    @patch("models.langchain_client.ChatOllama")
+    @patch("langchain_ollama.ChatOllama")
     def test_get_llm_client_ollama(self, mock_chat_ollama):
         mock_chat_ollama.return_value = MagicMock()
         config = ModelsConfig(provider="ollama")
@@ -175,7 +177,7 @@ class TestModelProviderRegistry:
         client = registry.get_llm_client()
         assert isinstance(client, LangChainLLMClient)
 
-    @patch("models.langchain_client.ChatOpenAI")
+    @patch("langchain_openai.ChatOpenAI")
     def test_get_llm_client_api(self, mock_chat_openai):
         mock_chat_openai.return_value = MagicMock()
         config = ModelsConfig(provider="api")
@@ -183,7 +185,7 @@ class TestModelProviderRegistry:
         client = registry.get_llm_client()
         assert isinstance(client, LangChainLLMClient)
 
-    @patch("models.langchain_client.OllamaEmbeddings")
+    @patch("langchain_ollama.OllamaEmbeddings")
     def test_get_embedding_client_ollama(self, mock_ollama_embeddings):
         mock_ollama_embeddings.return_value = MagicMock()
         config = ModelsConfig(provider="ollama")
@@ -191,7 +193,7 @@ class TestModelProviderRegistry:
         client = registry.get_embedding_client()
         assert isinstance(client, LangChainEmbeddingClient)
 
-    @patch("models.langchain_client.OpenAIEmbeddings")
+    @patch("langchain_openai.OpenAIEmbeddings")
     def test_get_embedding_client_api(self, mock_openai_embeddings):
         mock_openai_embeddings.return_value = MagicMock()
         config = ModelsConfig(provider="api")
@@ -199,7 +201,7 @@ class TestModelProviderRegistry:
         client = registry.get_embedding_client()
         assert isinstance(client, LangChainEmbeddingClient)
 
-    @patch("models.langchain_client.ChatOllama")
+    @patch("langchain_ollama.ChatOllama")
     def test_client_caching(self, mock_chat_ollama):
         mock_chat_ollama.return_value = MagicMock()
         config = ModelsConfig(provider="ollama")
@@ -208,7 +210,7 @@ class TestModelProviderRegistry:
         client2 = registry.get_llm_client()
         assert client1 is client2
 
-    @patch("models.langchain_client.ChatOllama")
+    @patch("langchain_ollama.ChatOllama")
     def test_get_chat_model(self, mock_chat_ollama):
         mock_instance = MagicMock()
         mock_chat_ollama.return_value = mock_instance
@@ -217,7 +219,7 @@ class TestModelProviderRegistry:
         chat_model = registry.get_chat_model()
         assert chat_model is mock_instance
 
-    @patch("models.langchain_client.OllamaEmbeddings")
+    @patch("langchain_ollama.OllamaEmbeddings")
     def test_get_embeddings(self, mock_ollama_embeddings):
         mock_instance = MagicMock()
         mock_ollama_embeddings.return_value = mock_instance
